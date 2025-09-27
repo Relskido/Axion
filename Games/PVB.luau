@@ -126,7 +126,6 @@ local function EquipBat()
     if not tool then return end
 
     if tool.Parent ~= character then
-        Equipped = true
         character:WaitForChild("Humanoid"):EquipTool(tool)
     end
 end
@@ -142,31 +141,34 @@ end
 -- // Functions \\ --
 function AutoFarmBrainrot(Type)
     if Type == AttackTypes.Normal then
-            if Equipped == false then
-                EquipBat()
-                    for _, v in ipairs(Brainrots:GetChildren()) do
-                        if v:IsA("Model") then
-                            local root = v:FindFirstChild("HumanoidRootPart") or v:FindFirstChild("RootPart")
-                                if root then
-                                    TeleportToBrainrot(v)
-                                         AttackRE:FireServer({ v.Name })
-                        break
-                    end
+        if Equipped == false then
+            EquipBat()
+        end
+
+        for _, v in ipairs(Brainrots:GetChildren()) do
+            if v:IsA("Model") then
+                local root = v:FindFirstChild("HumanoidRootPart") or v:FindFirstChild("RootPart")
+                if root then
+                    TeleportToBrainrot(v)
+                    AttackRE:FireServer({ v.Name })
+                    break
                 end
             end
         end
+
     elseif Type == AttackTypes.Instant then
         if Equipped == false then
             EquipBat()
-            for _, v in ipairs(Brainrots:GetChildren()) do
-                if v:IsA("Model") then
-                    local root = v:FindFirstChild("HumanoidRootPart") or v:FindFirstChild("RootPart")
-                    if root then
-                            TeleportToBrainrot(v)
-                                    VIM:SendMouseButtonEvent(300, 100, 0, true, game, 0)
-                                        VIM:SendMouseButtonEvent(300, 100, 0, false, game, 0)
-                        break
-                    end
+        end
+
+        for _, v in ipairs(Brainrots:GetChildren()) do
+            if v:IsA("Model") then
+                local root = v:FindFirstChild("HumanoidRootPart") or v:FindFirstChild("RootPart")
+                if root then
+                    TeleportToBrainrot(v)
+                    VIM:SendMouseButtonEvent(300, 100, 0, true, game, 0)
+                    VIM:SendMouseButtonEvent(300, 100, 0, false, game, 0)
+                    break
                 end
             end
         end
