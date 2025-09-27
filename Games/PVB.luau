@@ -213,12 +213,9 @@ Main:Toggle({
     Type = "Checkbox",
     Default = false,
     Callback = function(state)
-        if state then
-            EquipBat()
-            Equipped = true
-        else
-            Equipped = false
-        end
+        Equipped = state
+        if not state then return end
+        EquipBat()
     end
 })
 
