@@ -141,9 +141,7 @@ end
 -- // Functions \\ --
 function AutoFarmBrainrot(Type)
     if Type == AttackTypes.Normal then
-        if Equipped == false then
-            EquipBat()
-        end
+        EquipBat()
 
         for _, v in ipairs(Brainrots:GetChildren()) do
             if v:IsA("Model") then
@@ -157,9 +155,7 @@ function AutoFarmBrainrot(Type)
         end
 
     elseif Type == AttackTypes.Instant then
-        if Equipped == false then
-            EquipBat()
-        end
+        EquipBat()
 
         for _, v in ipairs(Brainrots:GetChildren()) do
             if v:IsA("Model") then
