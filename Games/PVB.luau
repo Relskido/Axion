@@ -179,20 +179,20 @@ function AutoPlant()
     
 end
 
-function AutoBuy(Item, Type)
+local function AutoBuy(Item: any, Type: any)
     if Type == "" then
-        print("Function 'AutoBuy' Has Invalid Type argument. got 'null'")
-        return
+        print("local function 'AutoBuy'. Has Invalid Arguments. Got: null | Type: ItemType")
     end
-    
-    if Item == "" then
-        print("Function 'AutoBuy' Has Invalid Item argument. got 'null' ")
-        return
+
+    if Plant == "" then
+        print("local function 'AutoBuy' Has Invalid Arguments. Got: null | Type: Item")
     end
-    
+
     if Type == ShopType.Seeds then
         DataRE:FireServer({ Item, "\7" })
-    elseif Type == ShopType.Gears then
+    end
+
+    if Type == ShopType.Gears then
         DataRE:FireServer({ Item, " " })
     end
 end
@@ -283,7 +283,7 @@ Main:Toggle({
 
 Shop:Dropdown({
     Title = "Item Type",
-    Values = { "None", "Seed", "Gear" }, 
+    Values = { "None", "Seed", "Gear" },
     Value = "None",
     Callback = function(option)
         selectedType = option
