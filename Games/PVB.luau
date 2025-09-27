@@ -7,7 +7,7 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:Tag({
-    Title = "v.1.0.5",
+    Title = "v1.0.5",
     Color = Color3.fromHex("#30ff6a"),
     Radius = 13,
 })
@@ -58,7 +58,7 @@ local RunService = game:GetService("RunService")
 local UIS = game:GetService("UserInputService")
 local VIM = game:GetService("VirtualInputManager")
 local HttpService = game:GetService("HttpService")
-local Brainrots = workspace:WaitForChild("ScriptedMap"):WaitForChild("Brainrots")
+local Brainrots = .workspace:WaitForChild("ScriptedMap"):WaitForChild("Brainrots")
 local RS = game:GetService("ReplicatedStorage")
 local AttackFolder = RS:WaitForChild("Remotes"):WaitForChild("AttacksServer")
 local BridgeNet2 = RS:WaitForChild("BridgeNet2")
@@ -126,7 +126,7 @@ local function EquipBat()
     if not tool then return end
 
     if tool.Parent ~= character then
-        character:WaitForChild("Humanoid"):EquipTool(tool)
+        tool.Parent = character
     end
 end
 
