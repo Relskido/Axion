@@ -283,7 +283,7 @@ Main:Toggle({
 
 Shop:Dropdown({
     Title = "Item Type",
-    Values = { "None", "Seed", "Gear" },
+    Values = { "None", "Seed", "Gear" }, 
     Value = "None",
     Callback = function(option)
         selectedType = option
@@ -317,10 +317,10 @@ Shop:Toggle({
         end
         if state and not ShopConnection then
             ShopConnection = RunService.Heartbeat:Connect(function()
-                if selectedType ~= "None" and selectedItem ~= "" then
+                if autobuy then
                     if selectedType == "Gear" then
                         AutoBuy(selectedItem, ShopType.Gears)
-                elseif selectedType == "Seed" then
+                    elseif selectedType == "Seed" then
                         AutoBuy(selectedItem, ShopType.Seeds)
                     end
                 end
