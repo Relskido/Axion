@@ -121,15 +121,6 @@ local function TeleportToBrainrot(brainrotModel)
     end
 end
 
-local function EquipBat()
-    local tool = BackPack:FindFirstChild("Bat")
-    if not tool then return end
-
-    if tool then
-        tool.Parent = character
-    end
-end
-
 local function GetMoney()
     
 end
@@ -141,7 +132,6 @@ end
 -- // Functions \\ --
 function AutoFarmBrainrot(Type)
     if Type == AttackTypes.Normal then
-        EquipBat()
 
         for _, v in ipairs(Brainrots:GetChildren()) do
             if v:IsA("Model") then
@@ -155,7 +145,6 @@ function AutoFarmBrainrot(Type)
         end
 
     elseif Type == AttackTypes.Instant then
-        EquipBat()
 
         for _, v in ipairs(Brainrots:GetChildren()) do
             if v:IsA("Model") then
@@ -201,19 +190,6 @@ Main:Dropdown({
     Value = "None",
     Callback = function(option)
         attackType = option
-    end
-})
-
-Main:Toggle({
-    Title = "Auto Equip Bat",
-    Desc = "Improving",
-    Icon = "checkmark",
-    Type = "Checkbox",
-    Default = false,
-    Callback = function(state)
-        Equipped = state
-        if not state then return end
-        EquipBat()
     end
 })
 
