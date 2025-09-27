@@ -125,7 +125,7 @@ local function EquipBat()
     local tool = BackPack:FindFirstChild("Bat")
     if not tool then return end
 
-    if tool.Parent ~= character then
+    if tool then
         tool.Parent = character
     end
 end
