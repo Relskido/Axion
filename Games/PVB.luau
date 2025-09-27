@@ -125,11 +125,9 @@ local function EquipBat()
     local tool = BackPack:FindFirstChild("Bat")
     if not tool then return end
 
-    if Equipped ~= true then
-        if tool.Parent ~= character then
-            Equipped = true
-            character:WaitForChild("Humanoid"):EquipTool(tool)
-        end
+    if tool.Parent ~= character then
+        Equipped = true
+        character:WaitForChild("Humanoid"):EquipTool(tool)
     end
 end
 
@@ -215,7 +213,12 @@ Main:Toggle({
     Type = "Checkbox",
     Default = false,
     Callback = function(state)
-        EquipBat()
+        if state then
+            EquipBat()
+            Equipped = true
+        else
+            Equipped = false
+        end
     end
 })
 
